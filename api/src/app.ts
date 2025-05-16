@@ -1,6 +1,5 @@
 import express from 'express'
 import cors from 'cors'
-import { connectDB } from './config/database'
 import { uploadRouter } from './routes/upload'
 import { errorHandler } from './middlewares/error'
 import { config } from './config/env'
@@ -10,9 +9,6 @@ const app = express()
 // Middleware
 app.use(cors()) // Uncommented this line
 app.use(express.json())
-
-// Database
-connectDB()
 
 // Routes
 app.use('/api/upload', uploadRouter)

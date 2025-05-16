@@ -1,6 +1,5 @@
 import { RequestHandler } from 'express'
 import { generatePresignedPost } from '../services/s3'
-import { createUploadRecord } from '../services/upload'
 
 interface ValidationError {
   field: string
@@ -52,7 +51,6 @@ export const generatePresignedUrl: RequestHandler = async (req, res, next) => {
 
     try {
       const presignedData = await generatePresignedPost(filename, contentType)
-      await createUploadRecord(filename, presignedData.key)
       res.json({
         status: 'success',
         data: {
