@@ -5,14 +5,17 @@ interface PresignedPostResponse {
 
 export const UploadService = {
   getPresignedUrl: async (file: File): Promise<PresignedPostResponse> => {
-    const response = await fetch('/api/upload', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        filename: file.name,
-        contentType: file.type,
-      }),
-    })
+    const response = await fetch(
+      `${import.meta.env.VITE_BASE_API_URL}/upload/presigned`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          filename: file.name,
+          contentType: file.type,
+        }),
+      }
+    )
     return response.json()
   },
 

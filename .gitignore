@@ -1,0 +1,70 @@
+# Common
+*.log
+*.pid
+*.seed
+*.pid.lock
+.DS_Store
+*.swp
+*.swo
+Thumbs.db
+.env*.local
+
+# Dependency directories
+node_modules/
+jspm_packages/
+bower_components/
+
+# Build directories
+dist/
+out/
+build/
+.serverless/
+.next/
+.vscode/
+
+# Cache
+.vite/
+.cache/
+.yarn/
+.yarn-unplugged/
+.npm/
+.pnp*
+.yarn-integrity
+
+# Environment
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Debug
+debug.log
+*.log
+logs/
+*.log.*
+
+# Editor
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Testing
+coverage/
+.nyc_output/
+
+# TypeScript
+*.tsbuildinfo
+
+# API Specific
+mongodb-data/
+
+# UI Specific
+/public/_redirects
+/public/_headers
+.cache/
+.tmp/
