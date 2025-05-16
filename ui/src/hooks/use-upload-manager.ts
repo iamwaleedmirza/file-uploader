@@ -32,7 +32,7 @@ const uploadReducer = (
       return [
         ...state,
         ...action.files.map((file) => ({
-          id: crypto.randomUUID(),
+          id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
           file,
           status: 'queued' as const,
           progress: 0,
