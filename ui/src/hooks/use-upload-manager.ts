@@ -32,7 +32,7 @@ const uploadReducer = (
       return [
         ...state,
         ...action.files.map((file) => ({
-          id: Math.random().toString(36).substr(2, 9),
+          id: crypto.randomUUID(),
           file,
           status: 'queued' as const,
           progress: 0,
@@ -97,7 +97,20 @@ export const useUploadManager = () => {
     try {
       dispatch({ type: 'START_UPLOAD', id: file.id })
 
-      const { url, fields } = await UploadService.getPresignedUrl(file.file)
+      const response = await UploadService.getPresignedUrl(file.file)
+
+      if (!response) {
+        throw new Error('Failed to get presigned URL - received empty response')
+      }
+
+      const { url, fields } = response.data
+
+      if (!url || !fields) {
+        throw new Error(
+          'Invalid presigned URL response - missing required fields'
+        )
+      }
+
       await UploadService.uploadToS3(url, fields, file.file, (progress) => {
         dispatch({ type: 'UPDATE_PROGRESS', id: file.id, progress })
       })

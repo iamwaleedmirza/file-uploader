@@ -1,6 +1,9 @@
 interface PresignedPostResponse {
-  url: string
-  fields: Record<string, string>
+  status: string
+  data: {
+    url: string
+    fields: Record<string, string>
+  }
 }
 
 export const UploadService = {
