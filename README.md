@@ -97,10 +97,3 @@ This approach significantly improves upload speeds, especially for large files a
    ```
 
 5. Access the application at `http://localhost:5173`
-
-## Configuration
-
-You can adjust various settings in the configuration files:
-
-- Backend: `config.js` - Adjust chunk size, S3 settings, etc.
-- Frontend: `src/config.js` - Configure concurrent upload limits, retry attempts, etc.
