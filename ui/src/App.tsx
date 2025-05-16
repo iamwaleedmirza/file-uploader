@@ -1,7 +1,16 @@
+import { Page, Layout } from '@shopify/polaris'
+import { FileUploader } from './components/file-uploader'
+
 function App() {
   return (
     <>
-      <h1>Hello there</h1>
+      <Page title='File Uploader'>
+        <Layout>
+          <Layout.Section>
+            <FileUploader />
+          </Layout.Section>
+        </Layout>
+      </Page>
     </>
   )
 }
