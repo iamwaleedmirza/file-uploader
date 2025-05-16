@@ -5,9 +5,7 @@ A high-performance file uploading solution that uses presigned URLs and concurre
 ## Features
 
 - Secure file uploads using presigned URLs
-- Concurrent chunked file uploads for improved performance
-- Progress tracking and resumable uploads
-- Support for large file uploads
+- Progress tracking
 
 ## Technologies Used
 
@@ -27,10 +25,10 @@ This project uses presigned URLs for file uploads for several important reasons:
 
 ## Frontend Concurrent Upload Implementation
 
-The frontend implements a sophisticated concurrent upload mechanism that:
+The frontend implements a concurrent upload mechanism that:
 
-1. **Parallel Uploading**: Multiple chunks are uploaded simultaneously, utilizing available bandwidth more effectively.
-2. **Retry Logic**: Failed chunk uploads are automatically retried without affecting the overall upload.
+1. **Parallel Uploading**: Multiple files are uploaded simultaneously, utilizing available bandwidth more effectively.
+2. **Retry Logic**: Failed uploads are automatically retried without affecting the overall upload.
 3. **Progress Tracking**: Real-time progress calculation based on successfully uploaded chunks.
 
 This approach significantly improves upload speeds, especially for large files and users with good internet connections, while also providing resilience against network issues.
