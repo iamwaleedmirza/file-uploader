@@ -32,6 +32,7 @@ export const UploadService = {
     Object.entries(fields).forEach(([key, value]) => {
       formData.append(key, value)
     })
+    formData.append('Content-Type', file.type)
     formData.append('file', file)
 
     return new Promise((resolve, reject) => {
