@@ -23,6 +23,10 @@ type UploadAction =
   | { type: 'RETRY_UPLOAD'; id: string }
   | { type: 'REMOVE_FILE'; id: string }
 
+function generateUniqueId() {
+  return `${Date.now()}_${Math.floor(Math.random() * 1e9)}`
+}
+
 const uploadReducer = (
   state: UploadState,
   action: UploadAction
@@ -32,7 +36,7 @@ const uploadReducer = (
       return [
         ...state,
         ...action.files.map((file) => ({
-          id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
+          id: generateUniqueId(),
           file,
           status: 'queued' as const,
           progress: 0,
