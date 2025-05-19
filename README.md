@@ -9,7 +9,7 @@ A high-performance file uploading solution that uses presigned URLs and concurre
 
 ## Technologies Used
 
-- **Frontend**: React.js with TypeScript
+- **Frontend**: React.js with TypeScript and Shopify Polaris
 - **Backend**: Node.js with Express TypeScript
 - **Storage**: AWS S3
 
